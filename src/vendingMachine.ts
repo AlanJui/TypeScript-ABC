@@ -1,3 +1,4 @@
+/// <reference path="typings/knockout.d.ts" />
 /// <reference path="coin.ts"/>
 /// <reference path="product.ts" />
 /// <reference path="productFactory.ts" />
@@ -12,21 +13,26 @@ class Cell {
     stock = ko.observable(3);
     sold = ko.observable(false);
 
-    constructor(public product: CocaCola){}
+    constructor(public product: Product) {}
 }
 
 class VendingMachine {
     paid = ko.observable(0);
-    selectedCell = ko.observable(new Cell(new CocaCola()));
+    selectedCell = ko.observable(new Cell(new Initial()));
     cells = ko.observableArray([]);
-    acceptedCoins: Quarter[] = [new Quarter()];
+    acceptedCoins: Coin[] = [
+        new Dime(),
+        new Quarter(),
+        new Half(),
+        new Dollar()
+    ];
     canPay = ko.pureComputed(() => this.paid() - this.selectedCell().product.price >= 0);
     
     set size(givenSize: VendingMachineSize) {
         this.cells([]);
 
         for (let index = 0; index < givenSize; index++) {
-            let product = ProductFactory.getProduct();
+            let product: Product = ProductFactory.getProduct();
             this.cells.push(new Cell(product));            
         };
     }
@@ -48,7 +54,7 @@ class VendingMachine {
         }
         
         let currentPayed = this.paid();
-        this.paid(Math.round(((currentPayed - this.selectedCell().product.price) * 100))/100);
+        this.paid(Math.round(((currentPayed - this.selectedCell().product.price) * 100)) / 100);
         let currentStock = this.selectedCell().stock();
         this.selectedCell().stock(currentStock - 1);
         this.selectedCell().sold(true);

@@ -1,23 +1,37 @@
 {
+  // 使用 Chrome Extension to Debug 之前，務必先將所有的 Chrome App 通通結束
   "version": "0.2.0",
   "configurations": [
     {
       "name": "Launch Chrome against localhost, with sourcemaps",
       "type": "chrome",
+      "runtimeExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
       "request": "launch",
       "url": "http://localhost:3000",
+      "port": 9222,
       "sourceMaps": true,
       "webRoot": "${workspaceRoot}",
       "userDataDir": "${workspaceRoot}/.vscode/chrome",
       "diagnosticLogging": false
     },
     {
+      "name": "Launch URL with sourcemaps",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://127.0.0.1:3000/index.html",
+      "webRoot": "${workspaceRoot}",
+      "port": 9222,
+      "sourceMaps": true
+    },
+    {
+      // 從未試成功
       "name": "Attach to Chrome, with sourcemaps",
       "type": "chrome",
       "request": "attach",
+      "url": "http://127.0.0.1:3000/index.html",
+      "webRoot": "${workspaceRoot}",
       "port": 9222,
-      "sourceMaps": true,
-      "webRoot": "${workspaceRoot}"
+      "sourceMaps": true
     }
   ]
 }
