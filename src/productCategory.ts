@@ -45,3 +45,5 @@ class CandyBarCategory extends ProductCategory {
     }
 }
 
+export { ProductCategory, SodaCategory, NutsCategory,
+    ChipsCategory as PotatoChipsCategory, CandyCategory, CandyBarCategory };

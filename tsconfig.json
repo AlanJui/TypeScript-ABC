@@ -1,0 +1,19 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es5",
+    // "outFile": "../js/app.js",
+    "outDir": "./js",
+    "module": "amd",
+    // "preserveConstEnums": true,
+    // "inlineSourceMap": true
+    "sourceMap": true
+  },
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "js/lib/**/*"
+  ]
+}

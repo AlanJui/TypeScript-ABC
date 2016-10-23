@@ -14,13 +14,15 @@
     "typings": "typings",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["TypeScript"],
+  "keywords": [
+    "TypeScript"
+  ],
   "author": "AlanJui",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^3.1.0",
     "lite-server": "^2.2.2",
-    "typescript": "^2.0.3",
+    "typescript": "^2.1.0-dev.20161023",
     "typings": "^1.4.0"
   }
 }

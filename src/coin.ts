@@ -1,4 +1,4 @@
-abstract class Coin {
+export abstract class Coin {
     private value: number;
     // 使用 protected 亦可
     // protected value: number;
@@ -14,7 +14,7 @@ abstract class Coin {
     abstract getImageUrl(): string;
 }
 
-class Dime extends Coin {
+export class Dime extends Coin {
     
     constructor() {
         super(.1);
@@ -25,7 +25,7 @@ class Dime extends Coin {
     }
 }
 
-class Quarter extends Coin {
+export class Quarter extends Coin {
 
     constructor() {
         super(.25);
@@ -36,7 +36,7 @@ class Quarter extends Coin {
     }
 }
 
-class Half extends Coin {
+export class Half extends Coin {
 
     constructor() {
         super(.5);
@@ -47,7 +47,7 @@ class Half extends Coin {
     }
 }
 
-class Dollar extends Coin {
+export class Dollar extends Coin {
 
     constructor() {
         super(1);

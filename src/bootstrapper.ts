@@ -1,5 +1,5 @@
-/// <reference path="vendingMachine.ts"/>
+import * as Machine from './vendingMachine';
 
-let machine = new VendingMachine();
-machine.size = VendingMachineSize.medium;
+let machine = new Machine.VendingMachine();
+machine.size = Machine.VendingMachineSize.MEDIUM;
 ko.applyBindings(machine);
