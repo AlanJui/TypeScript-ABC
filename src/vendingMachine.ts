@@ -11,8 +11,8 @@ export enum VendingMachineSize {
 }
 
 class Cell {
-    stock = ko.observable(3);
-    sold = ko.observable(false);
+    stock = ko.observable<number>(3);
+    sold = ko.observable<boolean>(false);
 
     constructor(public product: Product) {}
 }
@@ -21,7 +21,9 @@ export class VendingMachine {
     paid = ko.observable(0);
     selectedCell = ko.observable(new Cell(new Init()));
     cells = ko.observableArray([]);
-    acceptedCoins: Coins.Coin[] = [
+
+    // acceptedCoins: Coins.Coin[] = [ Obj-1, Obj-2, ..., Obj-N ];
+    acceptedCoins: Array<Coins.Coin> = [
         new Coins.Dime(),
         new Coins.Quarter(),
         new Coins.Half(),
